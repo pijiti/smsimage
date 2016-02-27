@@ -1,16 +1,17 @@
 {
   "name": "sms-app",
   "main": "app.js",
-  "dependencies" : {
-    "express" : "~4.0.0",           
-    "mongoose" : "~3.8.1",          
-    "passport" : "~0.1.17",         
-    "passport-local" : "~0.1.6",    
-    "connect-flash" : "~0.1.1",     
-    "bcrypt-nodejs" : "latest",
-    "morgan": "~1.0.0",
+  "dependencies": {
+    "bcrypt-nodejs": "latest",
     "body-parser": "~1.0.0",
+    "connect-flash": "~0.1.1",
     "cookie-parser": "~1.0.0",
-    "express-session": "~1.0.0"
+    "ejs": "^2.4.1",
+    "express": "~4.0.0",
+    "express-session": "~1.0.0",
+    "mongoose": "~3.8.1",
+    "morgan": "~1.0.0",
+    "passport": "~0.1.17",
+    "passport-local": "~0.1.6"
   }
 }
