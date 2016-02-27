@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="../css/bootstrap.min.css"> <!-- load bootstrap css -->
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
     <style>
-        body        { padding-top:80px; }
+        body        { padding-top:30px; }
     </style>
 
   </head>
@@ -30,8 +30,11 @@
                         <td>{{message.sender_name}}</td>
                         <td>{{message.image}}</td>
                         <td>{{message.station_id}}</td>
-                        <td>{{message.created_at}}</td>
-                        <td><a ng-click="toggleStatus(station_admin)">{{station_admin.activated ? 'Deactivate' : 'Activate'}}</a></td>
+                        <td>{{message.created_at | date}}</td>
+                        <td>
+                            <a ng-if="message.activated == 'inactive'" ng-click="toggleStatus(message , 'active')">Activate</a>
+                            <a ng-if="message.activated == 'active'" ng-click="toggleStatus(message , 'inactive')">Deactivate</a>
+                        </td>
                     </tr>
                 </tbody>
             </table>

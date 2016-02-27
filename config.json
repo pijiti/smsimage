@@ -1,8 +1,4 @@
 {
-	"DB_HOST"   : "localhost"	 ,
-	"DB_USER"   : "root"			 ,
-	"DB_PASSWORD": ""             , 
-	"DB_NAME" 	: "sms_service" ,
 	"USERNAME" : "Telerivet" ,
 	"PASSWORD" : "hello123"		 ,
 	"STATIONS" : [56,57,58,59,60,61,62]		 ,
@@ -20,5 +16,8 @@
 	"STATION_ID_ERROR" : "Station id does not exist",
 	"PARAMS_FORMAT_ERROR" : "The parameters format is not recognized",
 	"IMAGE_ERROR" : "Image does not exist",
-	"DELAY" : 2000
+	"DELAY" : 2000 , 
+	"CLOUDINARY_API_SECRET" : "lEX2HU81UhMU8CSlJSywyQk04y8",
+	"CLOUDINARY_API_KEY" : "873113592276421" ,
+	"CLOUDINARY_CLOUD_NAME" : "davsjonej"
 }

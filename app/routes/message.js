@@ -16,6 +16,23 @@ module.exports = function(app, passport) {
 	app.get('/message' , isLoggedIn , function(req , res){
 		res.render('messages.ejs')
 	});
+
+	app.put('/message/:id' , function(req , res){
+        Message.findOne({ _id :  req.params.id }, function(err, message) {
+            if(err){
+                res.status(500).end();
+            }else if(message){
+                message.activated = req.body.activated;
+                message.save(function(err , m){
+                    if(err){
+                        res.status(500).send(err);
+                    }else{
+                        res.status(200).json(m);
+                    }
+                })
+            }
+        });
+    })
     
     
 };

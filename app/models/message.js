@@ -14,7 +14,7 @@ var messageSchema = mongoose.Schema({
         created_at : {type : Date , default : Date.now},
         sent_at : {type : Date},
         status:{type : Boolean, default : false},
-        activated : {type : String , default : 'reset'},
+        activated : {type : String , default : ''},
         sent:{type : Boolean , default : false},
         failure_reason:String
 });

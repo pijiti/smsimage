@@ -37,6 +37,7 @@ require('./app/routes/sign.js')(app, passport);
 require('./app/routes/admin.js')(app, passport);
 require('./app/routes/message.js')(app, passport);
 require('./app/routes/webhook.js')(app, passport);
+require('./app/routes/upload.js')(app, passport);
 
 
 app.listen(port);

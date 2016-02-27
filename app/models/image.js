@@ -6,7 +6,8 @@ var mongoose = require('mongoose');
 var imageSchema = mongoose.Schema({
         name : String,
         url  : String,
-        station_id : String
+        station_id : String,
+        data : Object
 });
 
 // create the model for users and expose it to our app

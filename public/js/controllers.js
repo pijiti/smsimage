@@ -1,4 +1,4 @@
-var app = angular.module('sms' , []);
+var app = angular.module('sms' , ['ngFileUpload']);
 
 app.controller('stationController' , function($scope , $http){
 	$scope.admin = {};
@@ -36,4 +36,45 @@ app.controller('messageController' , function($scope , $http){
         }  
     });
 
+    $scope.toggleStatus = function(message , status){
+    	message.activated = status;
+
+		$http.put('/message/' + message._id , message).then(function(response){
+	        message.activated = response.data.activated;
+	    });
+	}
+
 });
+app.controller('uploadCtrl' , function($scope , $http , Upload , $timeout){
+	$scope.images = [];
+	$scope.file_ = {}
+	$scope.submit = function(){
+		for(var i=0 ; i < $scope.images.length ; i++){
+            if($scope.images[i].name == $scope.name.toLowerCase()){
+                alert("Name already exists");
+                return;
+            }
+        }
+
+        if ($scope.upload_form.file.$valid && $scope.file_.file) { //check if from is valid
+            alert("Uploading image please wait...")
+            $scope.upload($scope.file_.file , $scope.name); //call upload function
+        }
+	}
+
+	$scope.upload = function (file , name) {
+        $scope.loading = true;
+        Upload.upload({
+            url: '/upload', 
+            data:{file:file , name : name} 
+        }).then(function (resp) { 
+            $scope.loading = false;
+            if(resp && resp.status == 200){ //validate success
+                $scope.images.push(resp.data);
+                alert("Image successfully uploaded.")
+            } else {
+                alert('an error occured');
+            }
+        })
+    };
+})

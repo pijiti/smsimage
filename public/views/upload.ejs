@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app="sms">
+  <head>
+    <meta charset="utf-8">
+    <title>SMS App</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css"> <!-- load bootstrap css -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
+    <style>
+        body        { padding-top:30px; }
+    </style>
+  </head>
+    <body ng-controller="uploadCtrl">
+  	     
+
+        <form  name="upload_form">
+            <input type="text" required ng-model="name" placeholder="Enter image name"></input>
+            <input 
+               type="file" 
+               ngf-select 
+               ng-model="file_.file" 
+               name="file" 
+               ngf-pattern="'image/*'"
+               accept="image/*" 
+               ngf-max-size="20MB" 
+               />
+            Image thumbnail: <img style="width:100px;" ng-if="file" ngf-thumbnail="file"/>
+            <button type="submit" ng-click="submit()" class="md-raised red">Upload</button> 
+        </form>
+
+        <script src="../js/angular.min.js"></script>
+        <script src="../js/ng-file-upload-shim.js"></script>
+        <script src="../js/ng-file-upload.js"></script>
+        <script src="../js/controllers.js"></script>
+    </body>
+</html>
