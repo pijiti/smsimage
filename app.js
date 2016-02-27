@@ -35,6 +35,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 require('./app/routes/sign.js')(app, passport);
 require('./app/routes/admin.js')(app, passport);
+require('./app/routes/message.js')(app, passport);
+require('./app/routes/webhook.js')(app, passport);
+
 
 app.listen(port);
 console.log('The magic happens on port ' + port);

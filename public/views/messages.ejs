@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html ng-app="sms">
+  <head>
+    <title>SMS App</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css"> <!-- load bootstrap css -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
+    <style>
+        body        { padding-top:80px; }
+    </style>
+
+  </head>
+  <body ng-controller="messageController">
+  	    <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <th>Unique ID</th>
+                    <th>Number</th>
+                    <th>SMS Content</th>
+                    <th>Name</th>
+                    <th>Image</th>
+                    <th>Station ID</th>
+                    <th>Time</th>
+                    <th>Action</th>
+                </thead>
+                <tbody>
+                    <tr ng-repeat = "message in messages">
+                        <td>{{message._id}}</td>
+                        <td>{{message.sender_number}}</td>
+                        <td>{{message.content}}</td>
+                        <td>{{message.sender_name}}</td>
+                        <td>{{message.image}}</td>
+                        <td>{{message.station_id}}</td>
+                        <td>{{message.created_at}}</td>
+                        <td><a ng-click="toggleStatus(station_admin)">{{station_admin.activated ? 'Deactivate' : 'Activate'}}</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <script type="text/javascript" src="../js/angular.min.js"></script>
+        <script type="text/javascript" src="../js/controllers.js"></script>
+  </body>
+</html>

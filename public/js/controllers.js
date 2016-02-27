@@ -25,3 +25,15 @@ app.controller('stationController' , function($scope , $http){
 	    });
 	}
 });
+
+app.controller('messageController' , function($scope , $http){
+	$scope.admin = {};
+	$scope.messages = [];
+
+	$http.get('/messageList').then(function(response){
+        if(response && response.data){
+            $scope.messages = response.data;
+        }  
+    });
+
+});
