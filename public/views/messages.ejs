@@ -32,7 +32,7 @@
                         <td>{{message.station_id}}</td>
                         <td>{{message.created_at | date}}</td>
                         <td>
-                            <a ng-if="message.activated == 'inactive'" ng-click="toggleStatus(message , 'active')">Activate</a>
+                            <a ng-if="message.activated == 'inactive' || !message.activated" ng-click="toggleStatus(message , 'active')">Activate</a>
                             <a ng-if="message.activated == 'active'" ng-click="toggleStatus(message , 'inactive')">Deactivate</a>
                         </td>
                     </tr>
@@ -40,6 +40,8 @@
             </table>
         </div>
         <script type="text/javascript" src="../js/angular.min.js"></script>
+        <script src="../js/ng-file-upload-shim.js"></script>
+        <script src="../js/ng-file-upload.js"></script>
         <script type="text/javascript" src="../js/controllers.js"></script>
   </body>
 </html>

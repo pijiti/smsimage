@@ -9,6 +9,7 @@ var messageSchema = mongoose.Schema({
         sender_name : String,
         content:String ,
         image_name : String,
+        image_url : String,
         station_id : String,
         displayed_content : String,
         created_at : {type : Date , default : Date.now},

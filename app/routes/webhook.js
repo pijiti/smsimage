@@ -46,6 +46,7 @@ module.exports = function(app, passport) {
 	    			return;
 	    		}else{
 			    	message.displayed_content = message.sender_name;
+			    	message.image_url = image.url;
 			    	message.status = true;
 			    	message.save();
 			    	res.json({
