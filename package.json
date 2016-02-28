@@ -1,6 +1,10 @@
 {
   "name": "sms-app",
   "main": "app.js",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
   "dependencies": {
     "bcrypt-nodejs": "latest",
     "body-parser": "~1.0.0",
@@ -14,6 +18,9 @@
     "morgan": "~1.0.0",
     "multer": "^1.1.0",
     "passport": "~0.1.17",
-    "passport-local": "~0.1.6"
+    "passport-local": "~0.1.6",
+    "phantomjs-prebuilt": "^2.1.3",
+    "serve-favicon": "~2.3.0",
+    "telerivet": "^1.1.6"
   }
 }
