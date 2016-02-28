@@ -11,21 +11,32 @@
   </head>
     <body ng-controller="uploadCtrl">
   	     
+        <div class="container"  ng-controller="stationController">
 
-        <form  name="upload_form">
-            <input type="text" required ng-model="name" placeholder="Enter image name"></input>
-            <input 
-               type="file" 
-               ngf-select 
-               ng-model="file_.file" 
-               name="file" 
-               ngf-pattern="'image/*'"
-               accept="image/*" 
-               ngf-max-size="20MB" 
-               />
-            Image thumbnail: <img style="width:100px;" ng-if="file" ngf-thumbnail="file"/>
-            <button type="submit" ng-click="submit()" class="md-raised red">Upload</button> 
-        </form>
+            <div  class="col-sm-8 col-sm-offset-2">
+                <form  name="upload_form">
+                    <div class="form-group">
+                        <label>Image Name</label>
+                        <input type="text" required ng-model="name" placeholder="Enter image name" class="form-control"></input>
+                    </div>
+                    
+                    <input 
+                       type="file" 
+                       class="form-control" 
+                       ngf-select 
+                       ng-model="file_.file" 
+                       name="file" 
+                       ngf-pattern="'image/*'"
+                       accept="image/*" 
+                       ngf-max-size="5MB" 
+                       />
+                    Image thumbnail: <img style="width:100px;" ng-if="file_.file" ngf-thumbnail="file_.file"/>
+                    <br>
+                    <button class="btn btn-success btn-lg col-md-offset-5" type="submit" ng-click="submit()" class="md-raised red">Upload</button> 
+                </form>
+            </div>
+        </div>  
+   
         
         <script src="../js/angular.min.js"></script>
         <script src="../js/ng-file-upload-shim.js"></script>
