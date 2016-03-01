@@ -11,7 +11,7 @@
   </head>
     <body ng-controller="uploadCtrl">
   	     
-        <div class="container"  ng-controller="stationController">
+        <div class="container">
 
             <div  class="col-sm-8 col-sm-offset-2">
                 <form  name="upload_form">
@@ -36,7 +36,22 @@
                 </form>
             </div>
         </div>  
-   
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <th>Unique ID</th>
+                    <th>Name</th>
+                    <th>Image</th>
+                </thead>
+                <tbody>
+                    <tr ng-repeat = "image in images">
+                        <td>{{image._id}}</td>
+                        <td>{{image.name}}</td>
+                        <td><img style="width:100px;" ngf-thumbnail="image.url"/></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
         
         <script src="../js/angular.min.js"></script>
         <script src="../js/ng-file-upload-shim.js"></script>

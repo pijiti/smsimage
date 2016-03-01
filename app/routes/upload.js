@@ -26,6 +26,15 @@ module.exports = function(app , passport){
 		res.render('upload.ejs')
 	})
 
+	app.get('/imageList' , function(req , res){
+		Image.find(function(err,data){
+		    if(err) console.log(err);
+		    else {
+		      res.send(data);
+		    }
+		});
+	})
+
 	app.post('/upload' , upload.single('file') , function(req , res){
 		cloudinary.uploader.upload(req.file.path , function(result){
 			console.log(result);

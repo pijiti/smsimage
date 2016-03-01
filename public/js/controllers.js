@@ -48,6 +48,12 @@ app.controller('messageController' , function($scope , $http){
 app.controller('uploadCtrl' , function($scope , $http , Upload , $timeout){
 	$scope.images = [];
 	$scope.file_ = {}
+
+    $http.get("imageList").then(function(response){
+        if(response && response.data){
+            $scope.images = response.data;
+        }  
+    })
 	$scope.submit = function(){
 		for(var i=0 ; i < $scope.images.length ; i++){
             if($scope.images[i].name == $scope.name.toLowerCase()){
