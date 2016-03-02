@@ -1,11 +1,11 @@
 {
-	"USERNAME" : "Telerivet" ,
-	"PASSWORD" : "hello123"		 ,
+	"USERNAME" : "webmaster@epitome.com.ng" ,
+	"PASSWORD" : "mission"		 ,
 	"STATIONS" : [56,57,58,59,60,61,62]		 ,
-	"EVENT"    : "incoming_message" ,
-	"COMPAIGN_CODE" : "SAF1",
+	"EVENT"    : "fire" ,
+	"COMPAIGN_CODE" : "SAFW",
 	"SUCCESS_MESSAGE" : "Process Has been completed successfully" ,
-	"WEBHOOK_SECRET" : "Q2LXQFD7FGTNU747EE2ZR4FT9R627AQW",
+	"WEBHOOK_SECRET" : "4K327NW96276GAWMZ9QL7D77GRFA7EAE",
 	"TELERIVET_API_KEY" : "",
 	"DB_URI":"mongodb://root:U1299526@ds059185.mongolab.com:59185/sms_service",
 	"AWS_ACCESS_KEY" : "AKIAI4E4XIAPMXSYUSWQ",
@@ -16,8 +16,8 @@
 	"STATION_ID_ERROR" : "Station id does not exist",
 	"PARAMS_FORMAT_ERROR" : "The parameters format is not recognized",
 	"IMAGE_ERROR" : "Image does not exist",
-	"DELAY" : 2000 , 
-	"CLOUDINARY_API_SECRET" : "lEX2HU81UhMU8CSlJSywyQk04y8",
-	"CLOUDINARY_API_KEY" : "873113592276421" ,
-	"CLOUDINARY_CLOUD_NAME" : "davsjonej"
+	"DELAY" : 2000 ,
+	"CLOUDINARY_API_SECRET" : "FyaAcrn2NL07f5Qb8LTPvW8v4kE",
+	"CLOUDINARY_API_KEY" : "259693572737151" ,
+	"CLOUDINARY_CLOUD_NAME" : "epitome"
 }
