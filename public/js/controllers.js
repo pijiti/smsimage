@@ -83,4 +83,13 @@ app.controller('uploadCtrl' , function($scope , $http , Upload , $timeout){
             }
         })
     };
+
+    $scope.delete = function(image){
+        $http.delete("/images/" + image._id).then(function(response){
+            if(response){
+                var index = $scope.images.indexOf(image);
+                $scope.images.splice(index , 1);
+            }  
+        })
+    }
 })

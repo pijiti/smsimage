@@ -42,12 +42,14 @@
                     <th>Unique ID</th>
                     <th>Name</th>
                     <th>Image</th>
+                    <th>Action</th>
                 </thead>
                 <tbody>
                     <tr ng-repeat = "image in images">
                         <td>{{image._id}}</td>
                         <td>{{image.name}}</td>
                         <td><img style="width:100px;" ngf-thumbnail="image.url"/></td>
+                        <td><a ng-click="delete(image)" class="btn">Delete</a></td>
                     </tr>
                 </tbody>
             </table>
