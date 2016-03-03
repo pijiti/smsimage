@@ -24,7 +24,7 @@
                     <th>Action</th>
                 </thead>
                 <tbody>
-                    <tr ng-repeat = "message in messages">
+                    <tr ng-repeat = "message in messages | orderBy : '-created_at'">
                         <td>{{message._id}}</td>
                         <td>{{message.sender_number}}</td>
                         <td>{{message.content}}</td>
