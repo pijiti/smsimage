@@ -42,7 +42,7 @@ page.open('http://remotevalue.epitome.com.ng/control.html', function(status) {
             //     params.value = args[5];
             // }
 
-            //document.getElementById('on').click();
+            document.getElementById('on').click();
         } , args);
         setTimeout(function(){
                 console.log('rendering page')
