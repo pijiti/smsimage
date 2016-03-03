@@ -93,3 +93,44 @@ app.controller('uploadCtrl' , function($scope , $http , Upload , $timeout){
         })
     }
 })
+
+app.controller('userUploadCtrl' , function($scope , $http , Upload , $timeout){
+    $scope.file_ = {};
+    $scope.images = [];
+    $http.get("imageList").then(function(response){
+        if(response && response.data){
+            $scope.images = response.data;
+        }  
+    })
+    $scope.submit = function(){
+        for(var i=0 ; i < $scope.images.length ; i++){
+            if($scope.images[i].name == $scope.name.toLowerCase()){
+                alert("Name already exists");
+                return;
+            }
+        }
+
+        if ($scope.upload_form.file.$valid && $scope.file_.file) { //check if from is valid
+            alert("Uploading image please wait...")
+            $scope.upload($scope.file_.file , $scope.name , $scope.station_id); //call upload function
+        }
+    }
+
+    $scope.upload = function (file , name , station_id ) {
+        $scope.loading = true;
+        Upload.upload({
+            url: '/userUpload', 
+            data:{file:file , name : name , station_id } 
+        }).then(function (resp) { 
+            $scope.loading = false;
+            if(resp && resp.status == 200){ //validate success
+                $scope.images.push(resp.data);
+                alert("Image successfully uploaded.")
+            } else {
+                alert('an error occured');
+            }
+        } , function(error){
+            alert(error.data.message);
+        })
+    };
+})
