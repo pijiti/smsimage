@@ -34,8 +34,8 @@
                         <td>{{message.created_at | date}}</td>
                         <td>{{message.failure_reason}}</td>
                         <td>
-                            <a ng-if="(message.activated == 'inactive' || !message.activated) && message.status" ng-click="toggleStatus(message , 'active')">Approve</a>
-                            <a ng-if="message.activated == 'active' && message.status" ng-click="toggleStatus(message , 'inactive')">Disapprove</a>
+                            <a ng-if="(message.activated == 'inactive' || !message.activated) && message.status && !message.sent" ng-click="toggleStatus(message , 'active')">Approve</a>
+                            <a ng-if="message.activated == 'active' && message.status && !message.sent" ng-click="toggleStatus(message , 'inactive')">Disapprove</a>
                         </td>
                     </tr>
                 </tbody>
