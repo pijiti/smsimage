@@ -77,6 +77,8 @@ app.controller('uploadCtrl' , function($scope , $http , Upload , $timeout){
             $scope.loading = false;
             if(resp && resp.status == 200){ //validate success
                 $scope.images.push(resp.data);
+                $scope.file_ = {};
+                $scope.name = "";
                 alert("Image successfully uploaded.")
             } else {
                 alert('an error occured');
@@ -125,6 +127,9 @@ app.controller('userUploadCtrl' , function($scope , $http , Upload , $timeout){
             $scope.loading = false;
             if(resp && resp.status == 200){ //validate success
                 $scope.images.push(resp.data);
+                $scope.file_ = {};
+                $scope.name = "";
+                $scope.station_id = "";
                 alert("Image successfully uploaded.")
             } else {
                 alert('an error occured');

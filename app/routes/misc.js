@@ -18,16 +18,27 @@ module.exports = function(app){
 
 	function submit(){
 		Message.findOne({status : true , sent : false , activated : 'active'} , function(err , message){
-			if(err) console.log(err);
-			else if(message){
+			
+			if(message){
 				console.log(message);
 				message.sent = true;
-				message.save();
-				var file = './' + message.station_id +'.json';
+				message.save(function(err , m){
+					if(err) console.log(err);
+					else {
+						var file = './' + message.station_id +'.json';
 
-                var obj = {'name':message.sender_name , 'url' : message.image_url};
-                jsonfile.writeFileSync(file, obj);
-				submitForm(message);
+		                var obj = {'name':message.sender_name , 'url' : message.image_url};
+		                jsonfile.writeFileSync(file, obj);
+						submitForm(message);
+					}
+				});
+			}else{
+				var stations = config.STATIONS || [];
+				for(var i=0; i < stations.length ; i++){
+					var file = './' + stations[i] +'.json';
+	                var obj = {};
+	                jsonfile.writeFileSync(file, obj);
+				}
 			}
 		})
 	}
