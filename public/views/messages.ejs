@@ -20,10 +20,11 @@
                     <th>Image</th>
                     <th>Station ID</th>
                     <th>Time</th>
+                    <th>Failure Reason</th>
                     <th>Action</th>
                 </thead>
                 <tbody>
-                    <tr ng-repeat = "message in messages">
+                    <tr ng-repeat = "message in messages | orderBy : '-created_at'">
                         <td>{{message._id}}</td>
                         <td>{{message.sender_number}}</td>
                         <td>{{message.content}}</td>
@@ -31,9 +32,10 @@
                         <td>{{message.image}}</td>
                         <td>{{message.station_id}}</td>
                         <td>{{message.created_at | date}}</td>
+                        <td>{{message.failure_reason}}</td>
                         <td>
-                            <a ng-if="message.activated == 'inactive' || !message.activated" ng-click="toggleStatus(message , 'active')">Activate</a>
-                            <a ng-if="message.activated == 'active'" ng-click="toggleStatus(message , 'inactive')">Deactivate</a>
+                            <a ng-if="(message.activated == 'inactive' || !message.activated) && message.status" ng-click="toggleStatus(message , 'active')">Approve</a>
+                            <a ng-if="message.activated == 'active' && message.status" ng-click="toggleStatus(message , 'inactive')">Disapprove</a>
                         </td>
                     </tr>
                 </tbody>

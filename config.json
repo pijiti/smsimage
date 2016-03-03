@@ -7,7 +7,7 @@
 	"SUCCESS_MESSAGE" : "Process Has been completed successfully" ,
 	"WEBHOOK_SECRET" : "4K327NW96276GAWMZ9QL7D77GRFA7EAE",
 	"TELERIVET_API_KEY" : "",
-	"DB_URI":"mongodb://root:U1299526@ds059185.mongolab.com:59185/sms_service",
+	"DB_URI" : "mongodb://localhost:27017/sms",
 	"AWS_ACCESS_KEY" : "AKIAI4E4XIAPMXSYUSWQ",
 	"AWS_SECRET_KEY" : "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",
 	"S3_BUCKET" : "sms-app-image",

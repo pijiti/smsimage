@@ -7,6 +7,15 @@ var binPath = phantomjs.path
 var jsonfile = require('jsonfile');
 
 module.exports = function(app){
+
+	app.get('/json/:id/data.json' , function(req , res , next){
+	  var file = req.params.id + '.json';
+	  jsonfile.readFile(file, function(err, obj) {
+	    if(err) res.json({});
+	    else res.json(obj);
+	  })
+	})
+
 	function submit(){
 		Message.findOne({status : true , sent : false , activated : 'active'} , function(err , message){
 			if(err) console.log(err);
