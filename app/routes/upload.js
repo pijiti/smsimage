@@ -60,8 +60,7 @@ module.exports = function(app , passport){
 	});
 
 	app.post('/upload' , upload.single('file')  ,function(req , res){
-		cloudinary.uploader.upload(req.file.path , { width: 150, height: 150, 
-                   crop: 'thumb', gravity: 'face', radius: 'max' } , function(result){
+		cloudinary.uploader.upload(req.file.path , function(result){
 			console.log(result);
 			var img = new Image({url : result.url , name : req.body.name.toLowerCase() , data : result});
 			img.save(function(err , data){
@@ -73,7 +72,8 @@ module.exports = function(app , passport){
 			    	res.json(data);
 			    }
 			 });
-		});
+		} , { width: config.IMAGE_WIDTH || 150, height: config.IMAGE_HEIGHT || 150, 
+                   crop: 'thumb', gravity: 'face', radius: 'max' });
 	})
 
 	app.post('/userUpload' , upload.single('file')  ,function(req , res){
@@ -83,8 +83,7 @@ module.exports = function(app , passport){
 			res.status(500).json({message : "Station Id does not exist"});
 			return;
 		}
-		cloudinary.uploader.upload(req.file.path , { width: config.IMAGE_WIDTH || 150, height: config.IMAGE_HEIGHT || 150, 
-                   crop: 'thumb', gravity: 'face', radius: 'max' } , function(result){
+		cloudinary.uploader.upload(req.file.path , function(result){
 			console.log(result);
 			var img = new Image({url : result.url , name : req.body.name.toLowerCase() , data : result});
 			img.save(function(err , data){
@@ -105,6 +104,7 @@ module.exports = function(app , passport){
 			});
 
 
-		});
+		} , { width: config.IMAGE_WIDTH || 150, height: config.IMAGE_HEIGHT || 150, 
+                   crop: 'thumb', gravity: 'face', radius: 'max' });
 	})
 }
