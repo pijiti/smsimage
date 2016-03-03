@@ -16,8 +16,18 @@
 	"STATION_ID_ERROR" : "Station id does not exist",
 	"PARAMS_FORMAT_ERROR" : "The parameters format is not recognized",
 	"IMAGE_ERROR" : "Image does not exist",
+<<<<<<< HEAD
 	"DELAY" : 2000 ,
 	"CLOUDINARY_API_SECRET" : "FyaAcrn2NL07f5Qb8LTPvW8v4kE",
 	"CLOUDINARY_API_KEY" : "259693572737151" ,
 	"CLOUDINARY_CLOUD_NAME" : "epitome"
 }
+=======
+	"DELAY" : 2000 , 
+	"CLOUDINARY_API_SECRET" : "lEX2HU81UhMU8CSlJSywyQk04y8",
+	"CLOUDINARY_API_KEY" : "873113592276421" ,
+	"CLOUDINARY_CLOUD_NAME" : "davsjonej",
+	"IMAGE_WIDTH" : 200,
+	"IMAGE_HEIGHT" : 200
+}
+>>>>>>> 4b829473b80d8f7184b2053239d717e20b254672

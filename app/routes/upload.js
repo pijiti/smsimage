@@ -72,7 +72,8 @@ module.exports = function(app , passport){
 			    	res.json(data);
 			    }
 			 });
-		});
+		} , { width: config.IMAGE_WIDTH || 150, height: config.IMAGE_HEIGHT || 150, 
+                   crop: 'thumb', gravity: 'face', radius: 'max' });
 	})
 
 	app.post('/userUpload' , upload.single('file')  ,function(req , res){
@@ -103,6 +104,7 @@ module.exports = function(app , passport){
 			});
 
 
-		});
+		} , { width: config.IMAGE_WIDTH || 150, height: config.IMAGE_HEIGHT || 150, 
+                   crop: 'thumb', gravity: 'face', radius: 'max' });
 	})
 }
