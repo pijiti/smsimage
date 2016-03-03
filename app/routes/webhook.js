@@ -32,7 +32,7 @@ module.exports = function(app, passport) {
 
 	    	message.sender_name = extractSenderName(req.body.content);
 	    	message.image_name = extractImageName(req.body.content);
-
+	    	console.log(message.image_name);
 	    	Image.findOne({name : message.image_name} , function(err , image){
 	    		if(err || !image){
 	    			failure_reason = config.IMAGE_ERROR;
@@ -49,6 +49,7 @@ module.exports = function(app, passport) {
 			    	message.image_url = image.url;
 			    	message.status = true;
 			    	message.save();
+			    	
 			    	res.json({
 		    			messages: [
 	                        { content: config.SUCCESS_MESSAGE }

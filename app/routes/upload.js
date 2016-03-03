@@ -33,7 +33,18 @@ module.exports = function(app , passport){
 		      res.send(data);
 		    }
 		});
-	})
+	});
+
+	app.delete('/images/:id',function(req,res){
+	  Image.remove({ _id: req.params.id }, function(err) {
+	    if (err) {
+	      res.status(500).end()
+	    }
+	    else {
+	      res.status(200).end();
+	    }
+	  });
+	});
 
 	app.post('/upload' , upload.single('file') , function(req , res){
 		cloudinary.uploader.upload(req.file.path , function(result){

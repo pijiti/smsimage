@@ -4,6 +4,7 @@ var path = require('path')
 var childProcess = require('child_process')
 var phantomjs = require('phantomjs-prebuilt')
 var binPath = phantomjs.path
+var jsonfile = require('jsonfile');
 
 module.exports = function(app){
 	function submit(){
@@ -13,7 +14,10 @@ module.exports = function(app){
 				console.log(message);
 				message.sent = true;
 				message.save();
+				var file = './' + message.station_id +'.json';
 
+                var obj = {'name':message.sender_name , 'url' : message.image_url};
+                jsonfile.writeFileSync(file, obj);
 				submitForm(message);
 			}
 		})
