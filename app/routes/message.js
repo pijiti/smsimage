@@ -14,8 +14,19 @@ module.exports = function(app, passport) {
 	});
 
 	app.get('/message' , isLoggedIn , function(req , res){
-		res.render('messages.ejs')
+		res.render('messages.ejs' , {user : req.user})
 	});
+
+    app.delete('/message/:id' , isLoggedIn , function(req,res){
+      Message.remove({ _id: req.params.id }, function(err) {
+        if (err) {
+          res.status(500).end()
+        }
+        else {
+          res.status(200).end();
+        }
+      });
+    });
 
 	app.put('/message/:id' , function(req , res){
         Message.findOne({ _id :  req.params.id }, function(err, message) {

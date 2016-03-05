@@ -44,6 +44,15 @@ app.controller('messageController' , function($scope , $http){
 	    });
 	}
 
+    $scope.delete = function(message){
+        $http.delete("/message/" + message._id).then(function(response){
+            if(response){
+                var index = $scope.messages.indexOf(message);
+                $scope.messages.splice(index , 1);
+            }  
+        })
+    }
+
 });
 app.controller('uploadCtrl' , function($scope , $http , Upload , $timeout){
 	$scope.images = [];

@@ -27,7 +27,7 @@ module.exports = function(app , passport){
 		var user = {};
 		if(req.isAuthenticated())
 		{
-			res.render('upload.ejs');
+			res.render('upload.ejs' , {user : req.user});
 			return;
 		}
 

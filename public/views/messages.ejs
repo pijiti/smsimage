@@ -10,7 +10,31 @@
 
   </head>
   <body ng-controller="messageController">
-  	    <div class="table-responsive">
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+          <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>                        
+                </button>
+                <a class="navbar-brand" href="#">SMS App</a>
+            </div>
+            <div>
+              <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                  <% if (user && user.type == 'system_admin') { %>
+                  <li><a href="/admin">Admin management</a></li>
+                  <% } %>
+                  <li><a href="/message">Messages</a></li>
+                  <li><a href="/upload">Upload</a></li>
+                  <li><a href="/logout" class="pull-right">Logout</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </nav>    
+  	    <div class="table-responsive" style="margin-top: 30px">
             <table class="table table-bordered table-hover">
                 <thead>
                     <th>Unique ID</th>
@@ -29,13 +53,14 @@
                         <td>{{message.sender_number}}</td>
                         <td>{{message.content}}</td>
                         <td>{{message.sender_name}}</td>
-                        <td>{{message.image}}</td>
+                        <td><img style="width:100px;" ng-if="message.image_url" ngf-thumbnail="message.image_url"/></td>
                         <td>{{message.station_id}}</td>
                         <td>{{message.created_at | date}}</td>
                         <td>{{message.failure_reason}}</td>
                         <td>
                             <a ng-if="(message.activated == 'inactive' || !message.activated) && message.status && !message.sent" ng-click="toggleStatus(message , 'active')">Approve</a>
                             <a ng-if="message.activated == 'active' && message.status && !message.sent" ng-click="toggleStatus(message , 'inactive')">Disapprove</a>
+                            <a ng-click="delete(message)">Delete</a>
                         </td>
                     </tr>
                 </tbody>
