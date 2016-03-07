@@ -16,11 +16,10 @@
 	"STATION_ID_ERROR" : "Station ID does not exist",
 	"PARAMS_FORMAT_ERROR" : "The parameters format is not recognized",
 	"IMAGE_ERROR" : "Image does not exist",
-	"DELAY" : 2000 ,
+	"DELAY" : 20000 ,
 	"CLOUDINARY_API_SECRET" : "FyaAcrn2NL07f5Qb8LTPvW8v4kE",
 	"CLOUDINARY_API_KEY" : "259693572737151" ,
 	"CLOUDINARY_CLOUD_NAME" : "epitome",
-	"DELAY" : 60000 ,
 	"IMAGE_WIDTH" : 200,
 	"IMAGE_HEIGHT" : 200
 }
